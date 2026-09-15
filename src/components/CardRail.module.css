@@ -1,0 +1,8 @@
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(252px, 1fr);
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+}

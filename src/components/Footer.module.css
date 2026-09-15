@@ -1,0 +1,11 @@
+.footer {
+  padding: 24px var(--page-gutter) 40px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-quaternary);
+}
+
+.copy {
+  max-width: 52em;
+}
