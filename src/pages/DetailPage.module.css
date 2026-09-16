@@ -25,40 +25,6 @@
   min-width: 0;
 }
 
-.player {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-panel);
-  background: var(--subtle-surface);
-  overflow: hidden;
-}
-
-.playerSlot {
-  position: absolute;
-  left: 14px;
-  top: 13px;
-  font-family: ui-monospace, Menlo, monospace;
-  font-size: 11.5px;
-  color: var(--text-quaternary);
-}
-
-.playButton {
-  position: absolute;
-  left: 14px;
-  bottom: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: var(--radius-control);
-  background: var(--brand);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-}
-
 .title {
   font-weight: 600;
   font-size: 34px;

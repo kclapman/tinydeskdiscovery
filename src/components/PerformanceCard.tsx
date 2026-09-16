@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { Performance } from '../data/catalog';
+import { YoutubeThumb } from './YoutubeThumb';
 import styles from './PerformanceCard.module.css';
 
 export type NavOrigin = 'home' | 'browse' | 'saved';
@@ -11,6 +12,7 @@ export function PerformanceCard({ p, from }: { p: Performance; from?: NavOrigin 
   return (
     <article className={styles.card}>
       <Link to={`/performance/${p.slug}`} state={state} className={styles.thumb} aria-label={`Open ${p.artist}`}>
+        {p.videoId && <YoutubeThumb videoId={p.videoId} alt="" />}
         <span className={styles.genrePill}>{p.genre}</span>
         <span className={styles.duration}>{dur}</span>
       </Link>

@@ -20,7 +20,7 @@ export interface Performance {
   decade: Decade;
   rt: Runtime;
   added: number;
-  /** YouTube video ID, when known. Unset until the catalog has a real mapping. */
+  /** YouTube video ID for the official NPR Music upload. */
   videoId?: string;
 }
 

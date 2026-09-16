@@ -1,0 +1,59 @@
+.player {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  background: var(--subtle-surface);
+  overflow: hidden;
+  padding: 0;
+}
+
+button.player {
+  cursor: pointer;
+}
+
+button.player:disabled {
+  cursor: default;
+}
+
+.iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.slot {
+  position: absolute;
+  left: 14px;
+  top: 13px;
+  padding: 2px 8px;
+  border-radius: var(--radius-duration);
+  background: var(--overlay);
+  color: #ffffff;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 11.5px;
+}
+
+.playButton {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--radius-control);
+  background: var(--brand);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+button.player:disabled .playButton {
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
+}

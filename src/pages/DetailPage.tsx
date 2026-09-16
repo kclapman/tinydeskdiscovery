@@ -3,6 +3,8 @@ import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-route
 import { ITEMS, findBySlug } from '../data/catalog';
 import { relatedItems } from '../data/facets';
 import { useAppState } from '../lib/appState';
+import { VideoFacade } from '../components/VideoFacade';
+import { YoutubeThumb } from '../components/YoutubeThumb';
 import styles from './DetailPage.module.css';
 
 const BACK_LABELS: Record<string, string> = {
@@ -59,21 +61,7 @@ export function DetailPage() {
       </button>
       <div className={styles.grid}>
         <div className={styles.mainCol}>
-          <div className={styles.player}>
-            <span className={styles.playerSlot}>{playerSlot}</span>
-            {d.videoId ? (
-              <a
-                href={`https://www.youtube.com/watch?v=${d.videoId}`}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.playButton}
-              >
-                ▶ Play on YouTube
-              </a>
-            ) : (
-              <span className={styles.playButton}>▶ Play on YouTube</span>
-            )}
-          </div>
+          <VideoFacade videoId={d.videoId} slotLabel={playerSlot} title={`${d.artist} — Tiny Desk Concert`} />
           <h1 className={styles.title}>{d.artist}</h1>
           <div className={styles.metaLong}>
             {d.genre} · {d.sub} · {d.year} · {d.mins} min
@@ -151,6 +139,7 @@ function RelatedCard({ p }: { p: ReturnType<typeof relatedItems>[number] }) {
   return (
     <article className={styles.relatedCard}>
       <Link to={`/performance/${p.slug}`} state={state} className={styles.relatedThumb}>
+        {p.videoId && <YoutubeThumb videoId={p.videoId} alt="" />}
         <span className={styles.relatedDuration}>{p.mins}:00</span>
       </Link>
       <span className={styles.relatedWhy}>{p.why}</span>
