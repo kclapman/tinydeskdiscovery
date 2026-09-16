@@ -93,6 +93,26 @@ function slugify(name: string): string {
     .replace(/^-|-$/g, '');
 }
 
+/**
+ * Verified NPR Music YouTube IDs — only artists where the real Tiny Desk
+ * Concert's year matches this catalog's (mock) `year` field. The rest of
+ * the catalog's mock years don't line up with any real concert for that
+ * artist, so they're left without a videoId pending a decision on how to
+ * reconcile the mock metadata with reality.
+ */
+const VIDEO_IDS: Record<string, string> = {
+  'Anderson .Paak & The Free Nationals': 'ferZnZ0_rSM',
+  'Mac Miller': 'QrR_gm6RqCo',
+  'Phoebe Bridgers': '-hLJNZSIwP8',
+  'Esperanza Spalding': 'sBZa7-2bG2I',
+  'Cécile McLorin Salvant': 'NkmGue2WQyg',
+  'Leon Bridges': 'C_oACPWGvM4',
+  'H.E.R.': 'hxxcEzM8r-4',
+  'Jorja Smith': 'yXrlhebkpIQ',
+  'Natalia Lafourcade': 'JODaYjDyjyQ',
+  'Yo-Yo Ma': '3uiUHvET_jg',
+};
+
 export const ITEMS: Performance[] = RAW.map((r, i) => {
   const [artist, genre, sub, ens, region, year, mins, loves, moods, instr, blurb, setlistRaw] = r;
   return {
@@ -105,6 +125,7 @@ export const ITEMS: Performance[] = RAW.map((r, i) => {
     region,
     year,
     mins,
+    videoId: VIDEO_IDS[artist],
     loves,
     moods,
     instr,
