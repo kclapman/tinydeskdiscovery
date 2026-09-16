@@ -19,6 +19,7 @@ export interface Performance {
   setlist: string[];
   decade: Decade;
   rt: Runtime;
+  /** Recency proxy for "Recently added" / "Newest" sort — the real concert year. */
   added: number;
   /** YouTube video ID for the official NPR Music upload. */
   videoId?: string;
@@ -152,7 +153,7 @@ export const ITEMS: Performance[] = RAW.map((r, i) => {
     setlist: setlistRaw.split('|'),
     decade: year < 2020 ? '2010s' : '2020s',
     rt: mins < 15 ? 'Under 15 min' : mins <= 20 ? '15–20 min' : 'Over 20 min',
-    added: 25 - i,
+    added: year,
   };
 });
 
